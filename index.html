@@ -23,14 +23,24 @@
             padding: 40px;
             border-radius: 25px;
             box-shadow: 0 10px 25px rgba(214, 51, 132, 0.1);
-            max-width: 400px;
+            max-width: 450px;
             width: 85%;
+            z-index: 10;
         }
 
         h1 {
             color: #ff4d6d;
             font-size: 26px;
             margin-bottom: 15px;
+        }
+
+        .shayari {
+            font-style: italic;
+            color: #d63384;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 15px;
+            font-family: 'Georgia', serif;
         }
 
         p {
@@ -71,7 +81,6 @@
             display: none;
         }
 
-        /* Floating background hearts */
         .heart {
             position: absolute;
             color: #ffb3c1;
@@ -101,8 +110,12 @@
 
         <div id="success-box" class="success-message">
             <div style="font-size: 60px; margin-bottom: 10px;">🎈</div>
-            <h1>It's a date! ❤️</h1>
-            <p>You just made my day. I'm really looking forward to it!</p>
+            <h1>It's a date!</h1>
+            <div class="shayari">
+                "हज़ारों महफ़िल हैं, लाखों मेले हैं,<br>
+                मगर जहाँ तुम नहीं, वहाँ हम अकेले हैं।"
+            </div>
+            <p style="margin-top: 20px;">I'm really looking forward to it!</p>
         </div>
     </div>
 
@@ -115,15 +128,13 @@
         let yesSize = 18;
 
         const moveNo = () => {
-            // Make button jump
             noBtn.style.position = 'fixed';
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
             noBtn.style.left = `${x}px`;
             noBtn.style.top = `${y}px`;
 
-            // Make Yes button bigger and more tempting
-            yesSize += 4;
+            yesSize += 5;
             yesBtn.style.fontSize = `${yesSize}px`;
             yesBtn.style.padding = `${yesSize/2}px ${yesSize}px`;
         };
@@ -144,7 +155,7 @@
             setInterval(() => {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
-                heart.innerHTML = '🌸'; // Switched to flowers for a lighter vibe
+                heart.innerHTML = '🌸';
                 heart.style.left = Math.random() * 100 + 'vw';
                 heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
                 document.body.appendChild(heart);
